@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_experience_jobs",
+  "info": {
+    "displayName": "job",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "company": {
+      "type": "string"
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "On-site",
+        "Hybrid",
+        "Remote"
+      ]
+    }
+  },
+  "config": {}
+}

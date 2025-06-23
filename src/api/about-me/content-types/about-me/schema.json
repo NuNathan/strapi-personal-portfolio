@@ -1,0 +1,67 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_mes",
+  "info": {
+    "singularName": "about-me",
+    "pluralName": "about-mes",
+    "displayName": "About Me"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "subHeader": {
+      "type": "string",
+      "default": "Get to know the person behind the code",
+      "required": true
+    },
+    "introHeader": {
+      "type": "string",
+      "default": "Hello, I'm Nathan!",
+      "required": true
+    },
+    "topDescription": {
+      "type": "text",
+      "required": true
+    },
+    "bottomDescription": {
+      "type": "text",
+      "required": true
+    },
+    "resume": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "headshot": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "linkedIn": {
+      "type": "string",
+      "required": true
+    },
+    "github": {
+      "type": "string",
+      "required": true
+    },
+    "skillTags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::skill-tag.skill-tag"
+    }
+  }
+}

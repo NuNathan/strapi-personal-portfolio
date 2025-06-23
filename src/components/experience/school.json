@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_experience_schools",
+  "info": {
+    "displayName": "school",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "school": {
+      "type": "string",
+      "required": true
+    },
+    "degree": {
+      "type": "string",
+      "required": true
+    },
+    "gpa": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

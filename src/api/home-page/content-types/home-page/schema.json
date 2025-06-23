@@ -1,38 +1,36 @@
 {
-  "kind": "collectionType",
-  "collectionName": "authors",
+  "kind": "singleType",
+  "collectionName": "home_pages",
   "info": {
-    "singularName": "author",
-    "pluralName": "authors",
-    "displayName": "Authors"
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "homePage "
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
+    "header": {
+      "type": "richtext",
       "required": true
     },
-    "title": {
-      "type": "string",
+    "subHeader": {
+      "type": "richtext",
       "required": true
     },
-    "avatar": {
+    "resume": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": [
-        "images",
         "files"
       ]
     },
-    "posts": {
+    "skillTags": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::post.post",
-      "mappedBy": "author"
+      "target": "api::skill-tag.skill-tag"
     }
   }
 }
