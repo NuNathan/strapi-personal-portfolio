@@ -79,6 +79,10 @@
     },
     "github": {
       "type": "string"
+    },
+    "completionDate": {
+      "type": "date",
+      "required": true
     }
   }
 }

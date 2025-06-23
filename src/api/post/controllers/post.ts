@@ -16,17 +16,22 @@ export default factories.createCoreController('api::post.post', ({ strapi }) => 
       if (publishedPost) {
         const newViewCount = (publishedPost.views || 0) + 1;
 
-        // Update BOTH draft and published versions to keep them in sync
-        // This ensures consistency across both versions
-
-        // Update all entries with the same documentId (both draft and published)
-        await strapi.db.query('api::post.post').updateMany({
-          where: {
-            documentId: publishedPost.documentId
-          },
+        // Update the draft version first
+        await strapi.documents('api::post.post').update({
+          documentId: publishedPost.documentId,
           data: {
             views: newViewCount,
           },
+        });
+
+        // Then update and publish to keep both versions in sync
+        // This ensures the published version also gets the updated view count
+        await strapi.documents('api::post.post').update({
+          documentId: publishedPost.documentId,
+          data: {
+            views: newViewCount,
+          },
+          status: 'published', // This updates and publishes in one operation
         });
       }
     }
