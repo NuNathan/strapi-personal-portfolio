@@ -4,7 +4,7 @@
   "info": {
     "singularName": "skill-tag",
     "pluralName": "skill-tags",
-    "displayName": "SkillTag"
+    "displayName": "Skill Tags"
   },
   "options": {
     "draftAndPublish": true

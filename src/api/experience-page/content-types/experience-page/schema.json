@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "experience_pages",
+  "info": {
+    "singularName": "experience-page",
+    "pluralName": "experience-pages",
+    "displayName": "Experience Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "subHeader": {
+      "type": "string",
+      "default": "My professional journey through software development and education",
+      "required": true
+    },
+    "experiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::experience.experience"
+    },
+    "skill_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::skill-categorie.skill-categorie"
+    }
+  }
+}

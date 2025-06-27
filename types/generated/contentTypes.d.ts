@@ -487,10 +487,49 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiExperiencePageExperiencePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'experience_pages';
+  info: {
+    displayName: 'Experience Page';
+    pluralName: 'experience-pages';
+    singularName: 'experience-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    experiences: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::experience.experience'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::experience-page.experience-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    skill_categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::skill-categorie.skill-categorie'
+    >;
+    subHeader: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'My professional journey through software development and education'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiExperienceExperience extends Struct.CollectionTypeSchema {
   collectionName: 'experiences';
   info: {
-    displayName: 'Experience';
+    displayName: 'Experiences';
     pluralName: 'experiences';
     singularName: 'experience';
   };
@@ -536,7 +575,7 @@ export interface ApiExperienceExperience extends Struct.CollectionTypeSchema {
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
-    displayName: 'homePage ';
+    displayName: 'Home Page ';
     pluralName: 'home-pages';
     singularName: 'home-page';
   };
@@ -624,10 +663,42 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSkillCategorieSkillCategorie
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'skill_categories';
+  info: {
+    displayName: 'Skill Categories';
+    pluralName: 'skill-categories';
+    singularName: 'skill-categorie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.String & Schema.Attribute.Required;
+    color: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Icon: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::skill-categorie.skill-categorie'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    skills: Schema.Attribute.Relation<'oneToMany', 'api::skill-tag.skill-tag'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSkillTagSkillTag extends Struct.CollectionTypeSchema {
   collectionName: 'skill_tags';
   info: {
-    displayName: 'SkillTag';
+    displayName: 'Skill Tags';
     pluralName: 'skill-tags';
     singularName: 'skill-tag';
   };
@@ -1178,9 +1249,11 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-me.about-me': ApiAboutMeAboutMe;
       'api::author.author': ApiAuthorAuthor;
+      'api::experience-page.experience-page': ApiExperiencePageExperiencePage;
       'api::experience.experience': ApiExperienceExperience;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::post.post': ApiPostPost;
+      'api::skill-categorie.skill-categorie': ApiSkillCategorieSkillCategorie;
       'api::skill-tag.skill-tag': ApiSkillTagSkillTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
