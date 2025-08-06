@@ -83,6 +83,10 @@
     "completionDate": {
       "type": "date",
       "required": true
+    },
+    "seoKeywords": {
+      "type": "text",
+      "required": true
     }
   }
 }

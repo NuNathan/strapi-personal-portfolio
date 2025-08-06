@@ -639,6 +639,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     readTime: Schema.Attribute.String;
+    seoKeywords: Schema.Attribute.Text & Schema.Attribute.Required;
     skillTags: Schema.Attribute.Relation<
       'manyToMany',
       'api::skill-tag.skill-tag'
