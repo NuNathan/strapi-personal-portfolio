@@ -9,6 +9,7 @@ export default {
       path: '/posts/:slug/increment-view',
       handler: 'post.incrementView',
       config: {
+        auth: false, // Disable authentication for this route
         policies: [],
         middlewares: [],
       },
